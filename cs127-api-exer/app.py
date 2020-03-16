@@ -65,21 +65,18 @@ class Products(Resource):
 	@productRoutes.expect(product)
 	def put(self,id):
 		''' Update a single product based on ID'''
-		updatedName = request.json.get("name")
-		updatedDescription = request.json.get("description")
-		updatedPrice = request.json.get("price")
-		updatedQty = request.json.get("qty")
+		productName = request.json.get("name")
+		productDescription = request.json.get("description")
+		productPrice = request.json.get("price")
+		productQty = request.json.get("qty")
 		
-		update_single_product = f"UPDATE products SET name = '{updatedName}', description = '{updatedDescription}', price = '{updatedPrice}', qty = '{updatedQty}' WHERE id = '{id}'"
+		update_single_product = f"UPDATE products SET name = '{productName}', description = '{productDescription}', price = '{productPrice}', qty = '{productQty}' WHERE id = '{id}'"
 		products = execute_read_query(update_single_product)
 		return products, 200
 
-# @productRoutes.route('/product', method = ['POST'])
+# @productRoutes.route('/product')
 # class Products(Resource):
-# 	@productRoutes.expect(product)
-# 	def post(self):
-
-
+# 	def post(self,)
 
 
 # Run Server
